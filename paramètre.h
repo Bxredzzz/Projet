@@ -5,6 +5,7 @@
 #include <string.h>
 #include <unistd.h>
 #include <stdlib.h>
+#include <assert.h>
 
 typedef struct s_balise_option{
   bool b_i,b_d,b_o,b_m;
