@@ -8,6 +8,7 @@
 #include <stdlib.h>
 #include <stdbool.h>
 #include "paramètre.h"
+#include "lecture_csv.h"
 
 typedef struct s_arc_p{ /// arc pondéré
   int orig;

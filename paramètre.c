@@ -17,8 +17,6 @@ void do_balise(char balise, char* next_chaine, b_o *g_para,FILE *logfp){
       g_para -> b_i =true;
       if (is_specified_fichier(next_chaine,"csv") && exist(next_chaine) && access_lecture(next_chaine)){
         g_para -> opt_i = next_chaine;
-        printf("balise -i OK\n ");
-        printf("opt_i: %s\n",g_para -> opt_i);
         }
         else{
           printf("erreur argument invalide -i\n");
@@ -35,8 +33,6 @@ void do_balise(char balise, char* next_chaine, b_o *g_para,FILE *logfp){
       g_para -> b_d =true;
       if (is_specified_fichier(next_chaine,"csv") && exist(next_chaine) && access_lecture(next_chaine)){
         g_para -> opt_d = next_chaine;
-        printf("balise -d OK\n ");
-        printf("opt_d: %s\n",g_para -> opt_d);
       }
       else{
         printf("erreur argument invalide -d\n");
@@ -52,10 +48,7 @@ void do_balise(char balise, char* next_chaine, b_o *g_para,FILE *logfp){
     g_para -> b_o =true;
     if (is_specified_fichier(next_chaine,"txt") && exist(next_chaine) && access_lecture(next_chaine) && access_write(next_chaine) && access_exec(next_chaine)){
         g_para -> opt_o = next_chaine;
-        printf("balise -o OK\n ");
-        printf("opt_o: %s\n",g_para -> opt_o);
-        logfp=fopen("test.txt","a+");
-        fprintf(logfp,"ok -o\n");
+
     }
     else{
       printf("erreur argument invalide -o\n");
@@ -75,8 +68,6 @@ void do_balise(char balise, char* next_chaine, b_o *g_para,FILE *logfp){
         exit(EXIT_FAILURE);
       }
         g_para -> opt_m = next_chaine;
-        printf("balise -m OK\n ");
-        printf("opt_m: %s\n",g_para -> opt_m);
   }
 }
 
