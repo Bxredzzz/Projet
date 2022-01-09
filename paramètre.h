@@ -15,7 +15,7 @@ typedef struct s_balise_option{
   char* opt_m;
 }b_o;
 
-void do_balise(char balise, char* next_chaine, b_o *g_para,FILE *logfp);
+void do_balise(char balise, char* next_chaine, b_o *g_para,FILE *logfp,int *clean);
 bool is_specified_fichier(char* chaine,char* extension);
 bool exist(char* chaine);
 bool access_lecture(char* chaine);

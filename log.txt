@@ -1,3 +1,5 @@
+Fichier de départ:
+
  Réponse Soumis le : Cours Nom complet Q00_Vote roi des pirates->Monkey D Lufy Q00_Vote roi des pirates->Trafalgar Law Q00_Vote roi des pirates->Portgas D Ace Q00_Vote roi des pirates->Mihawk Dracule Q00_Vote roi des pirates->Baggy le clown Q00_Vote roi des pirates->Boa Hancock Q00_Vote roi des pirates->Jewelry Bonney Q00_Vote roi des pirates->Sabo dragon claws Q00_Vote roi des pirates->Shanks le roux Q00_Vote roi des pirates->Vivi
 
  54813 25/06/2021 16:28:22 EDINF3G1 : Projet S3 DUGAT Vincent 1 1 1 1 1 
@@ -151,4 +153,32 @@
  58815 30/10/2021 12:11:08 EDINF3G1 : Projet S3 NYA Zakaria 1 2 3 4 5 6 7 8 9 10
 
 
-oui
+------------------------------------------------------------
+
+candidat 0 : Q00_Vote roi des pirates->Monkey D Lufy
+candidat 1 : Q00_Vote roi des pirates->Trafalgar Law
+candidat 2 : Q00_Vote roi des pirates->Portgas D Ace
+candidat 3 : Q00_Vote roi des pirates->Mihawk Dracule
+candidat 4 : Q00_Vote roi des pirates->Baggy le clown
+candidat 5 : Q00_Vote roi des pirates->Boa Hancock
+candidat 6 : Q00_Vote roi des pirates->Jewelry Bonney
+candidat 7 : Q00_Vote roi des pirates->Sabo dragon claws
+candidat 8 : Q00_Vote roi des pirates->Shanks le roux
+candidat 9 : Q00_Vote roi des pirates->Vivi
+
+------------------------------------------------------------
+
+Matrice de duel:
+
+ 0 32 29 33 29 30 30 30 36 28
+ 37 0 37 36 34 34 28 41 37 28
+ 37 34 0 32 35 34 30 31 35 32
+ 36 30 37 0 33 35 31 36 42 30
+ 37 33 32 35 0 36 30 36 42 28
+ 38 36 33 34 33 0 31 33 37 27
+ 41 39 40 37 38 38 0 39 44 28
+ 40 29 34 30 32 33 28 0 38 26
+ 27 30 27 27 25 31 27 29 0 33
+ 41 41 38 40 39 42 38 43 38 0
+
+------------------------------------------------------------

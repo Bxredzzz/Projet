@@ -8,7 +8,7 @@ bool is_methode(char* chaine,char* methode){
   return true;
 }
 
-void do_balise(char balise, char* next_chaine, b_o *g_para,FILE *logfp){
+void do_balise(char balise, char* next_chaine, b_o *g_para,FILE *logfp,int *clean){
     if (balise == 'i'){
       if (g_para -> b_i == true || g_para -> b_d == true){
         printf("erreur il y a soit une balise en double soit 2 balise incompatible\n");
@@ -16,6 +16,7 @@ void do_balise(char balise, char* next_chaine, b_o *g_para,FILE *logfp){
       }
       g_para -> b_i =true;
       if (is_specified_fichier(next_chaine,"csv") && exist(next_chaine) && access_lecture(next_chaine)){
+        if(next_chaine=="Vote_clean") clean=0;
         g_para -> opt_i = next_chaine;
         }
         else{

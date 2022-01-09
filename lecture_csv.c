@@ -1,4 +1,5 @@
 #include "lecture_csv.h"
+#include "traitement.h"
 
 void creer_t_mat_char_dyn(t_mat_char_star_dyn *s_tabmots,int nbRows,int nbCol){
   s_tabmots->tab=malloc(nbRows*sizeof(char**));
