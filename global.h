@@ -10,6 +10,8 @@
 #include "paramètre.h"
 #include "lecture_csv.h"
 #include "traitement.h"
+#include "uni.h"
+
 
 typedef struct s_arc_p{ /// arc pondéré
   int orig;
