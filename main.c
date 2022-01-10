@@ -120,6 +120,7 @@ int main(int argc,char **argv){
     }
     else{
       if(ret2==0 || ret3==0){
+
         uni1(tab_mots,logfp,true);
         fprintf(logfp,"------------------------------------------------------------\n");
         fprintf(logfp,"\n");
@@ -130,7 +131,24 @@ int main(int argc,char **argv){
         fprintf(logfp,"\n");
       }
     }
+    int ret5=strncmp("cm", g_para.opt_m, 2);
+    if(ret5==0 || ret3==0){
+      int cond=condorcet(mat_duel);
+      if(cond!=-1){
+        fprintf(logfp,"Mode de scrutin : condorcet, %d candidats, %d votants, vainqueur= %s\n\n",mat_duel.nbCol,tab_mots.nbRows-2,code_candidat(cond,tab_mots));
+        fprintf(logfp,"------------------------------------------------------------\n");
+        fprintf(logfp,"\n");
+      }
+
+    int ret6=strncmp("cs", g_para.opt_m, 2);
+    if(ret5==0 || ret3==0){
+      int cond=condorcet(mat_duel);
+      if(cond!=-1) fprintf(logfp,"Mode de scrutin : condorcet, %d candidats, %d votants, vainqueur= %s\n\n",mat_duel.nbCol,tab_mots.nbRows-2,code_candidat(cond,tab_mots));
+      int min=minimax(p,mat_duel.nbCol,mat_duel);
+      if(min!=-1) fprintf(logfp,"Mode de scrutin : condorcet minimax, %d candidats, %d votants, vainqueur= %s\n\n",mat_duel.nbCol,tab_mots.nbRows-2,code_candidat(min,tab_mots));
+    }
    }
+ }
 
 
 
@@ -146,6 +164,13 @@ int main(int argc,char **argv){
  for(int i=0;i<p.taille;i++){
    fprintf(logfp, "%s -> %s : %d\n",code_candidat_d(p.liste[i].orig,tab_mots),code_candidat_d(p.liste[i].dest,tab_mots),p.liste[i].poids);
  }
+ fprintf(logfp,"\n");
+ fprintf(logfp,"------------------------------------------------------------\n");
+ fprintf(logfp,"\n");
+
+ int cond2=condorcet_d(tab_mots);
+ if(cond2!=-1) fprintf(logfp,"Mode de scrutin : condorcet, %d candidats, %d votants, vainqueur= %s\n\n",tab_mots.nbCol,tab_mots.nbRows-2,code_candidat(cond2,tab_mots));
+
 }
 
  free(tab_mots.tab);

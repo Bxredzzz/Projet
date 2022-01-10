@@ -35,7 +35,7 @@ void uni1(t_mat_char_star_dyn tab_mots,FILE* outfp,bool clean){
     else{
       for(int k=2;k<tab_mots.nbRows-1;k++){
         if(atoi(tab_mots.tab[k][j+4])==1){
-            totale_vote;
+            totale_vote++;
             vote_courant+=1;
             }
         }

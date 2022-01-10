@@ -10,6 +10,7 @@
 #include "uni.h"
 #include "global.h"
 #include "elementliste.h"
+#include "condorcet.h"
 
 
 #endif

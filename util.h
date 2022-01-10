@@ -1,6 +1,6 @@
 #ifndef UTIL_H
 #define UTIL_H
-
+#include <stdio.h>
 /*struct pour encapsuler des tableaux dynamiques d'entiers avec la dimension.*/
 typedef struct s_tab_dyn{
   int * tab;

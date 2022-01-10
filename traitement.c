@@ -40,6 +40,13 @@ void construct_mat_duels_d(t_mat_char_star_dyn tabmots,t_mat_int_dyn *duels_mat,
       }
     }
   }
+void construct_mat_duels_d2(t_mat_char_star_dyn tabmots,t_mat_int_dyn *duels_mat,int nbCandidats){
+  for(int i=0;i<nbCandidats;i++){
+    for(int j=0;j<nbCandidats;j++){
+      duels_mat->tab[i][j]=atoi(tabmots.tab[i+1][j]);
+    }
+  }
+}
 void affiche_t_mat_int_dyn(t_mat_int_dyn t_tab, FILE *outfp){
   for(int i=0;i<t_tab.nbRows;i++){
     for(int j=0;j<t_tab.nbCol;j++){

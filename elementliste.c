@@ -50,13 +50,13 @@ void generer_list_elem(liste* list,t_mat_int_dyn stTab){
   for(int i=0;i<stTab.nbRows;i++){
     for(int j=0;j<stTab.nbCol;j++){
       if(stTab.tab[i][j]-stTab.tab[j][i]!=0){
-        if(stTab.tab[i][j]<stTab.tab[j][i]){
-          origin=j;
-          destination=i;
-        }
-        else{
+        if(stTab.tab[i][j]>stTab.tab[j][i]){
           origin=i;
           destination=j;
+        }
+        else{
+          origin=j;
+          destination=i;
         }
         if(stTab.tab[i][j]-stTab.tab[j][i]<0){
           saisie_element(&e,origin,destination,(stTab.tab[i][j]-stTab.tab[j][i])*-1);
