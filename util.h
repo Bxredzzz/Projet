@@ -26,8 +26,6 @@ void affiche_tab_int(int *tab, int dim, FILE *outfp); /*affiche le tableau(non d
 
 void creer_t_tab_int_dyn(t_tab_int_dyn *stTab,int dim);/*creer un tableau dynamique d'entier de longueur dim*/
 
-void reset_t_tab_int_dyn(t_tab_int_dyn *stTab,int dim);
-
 void creer_t_mat_int_dyn(t_mat_int_dyn *stTab,int nbRows,int nbCol);/*creer une matrice d'entier de nbRows lignes et de nbCol colonnes*/
 
 void creer_t_mat_char_dyn(t_mat_char_star_dyn *s_tabmots,int nbRows,int nbCol);/*creer une matrice dynamique de caractère de nbRows lignes et de nbCol colonnes*/

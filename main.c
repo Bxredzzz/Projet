@@ -1,4 +1,4 @@
-#include "global.h"
+#include "main.h"
 
 
 int main(int argc,char **argv){
@@ -14,7 +14,9 @@ int main(int argc,char **argv){
   t_mat_char_star_dyn tab_mots;
   t_mat_int_dyn mat_duel;
   t_tab_int_dyn id_votant;
-
+  liste p;
+  Elementliste arc;
+  create_liste(&p);
   if (argc == 1){
     printf("aucun paramètre n'est présent\n");
     exit(EXIT_FAILURE);
@@ -63,8 +65,8 @@ int main(int argc,char **argv){
    exit(EXIT_FAILURE);
  }
  creer_t_mat_char_dyn(&tab_mots,1000,1000);
- if(g_para.b_i==true) read_voting_file(g_para.opt_i,",;",&tab_mots);
- if(g_para.b_d==true) read_voting_file(g_para.opt_d,",;",&tab_mots);
+ if(g_para.b_i==true) read_voting_file(g_para.opt_i,",;\x0A",&tab_mots);
+ if(g_para.b_d==true) read_voting_file(g_para.opt_d,",;\x0A",&tab_mots);
  fprintf(logfp,"Fichier de départ:\n");
  fprintf(logfp,"\n");
  affiche_t_mat_char_star_dyn(tab_mots,logfp);
@@ -82,11 +84,20 @@ int main(int argc,char **argv){
    for(int i=0;i<tab_mots.nbCol-4;i++){
      fprintf(logfp,"candidat %d : %s\n",i,code_candidat(i,tab_mots));
    }
+   fprintf(logfp,"\n");
    fprintf(logfp,"------------------------------------------------------------\n");
    fprintf(logfp,"\n");
    fprintf(logfp,"Matrice de duel:\n");
    fprintf(logfp,"\n");
    affiche_t_mat_int_dyn(mat_duel,logfp);
+   fprintf(logfp,"\n");
+   fprintf(logfp,"------------------------------------------------------------\n");
+   fprintf(logfp,"\n");
+   fprintf(logfp,"le graphe:\n\n");
+   generer_list_elem(&p,mat_duel);
+   for(int i=0;i<p.taille;i++){
+     fprintf(logfp, "%s -> %s : %d\n",code_candidat(p.liste[i].orig,tab_mots),code_candidat(p.liste[i].dest,tab_mots),p.liste[i].poids);
+   }
    fprintf(logfp,"\n");
    fprintf(logfp,"------------------------------------------------------------\n");
    fprintf(logfp,"\n");
@@ -97,26 +108,24 @@ int main(int argc,char **argv){
    int ret4=strncmp("uni2", g_para.opt_m, 4);
    if(ret==0){
      if(ret2==0 || ret3==0){
-       uni1(&id_votant,tab_mots,logfp,false);
+       uni1(tab_mots,logfp,false);
        fprintf(logfp,"------------------------------------------------------------\n");
        fprintf(logfp,"\n");
      }
      if(ret4==0|| ret3==0){
-       reset_t_tab_int_dyn(&id_votant,id_votant.dim);
-       uni2(&id_votant,tab_mots,logfp,false,mat_duel);
+       uni2(tab_mots,logfp,false,mat_duel);
        fprintf(logfp,"------------------------------------------------------------\n");
        fprintf(logfp,"\n");
      }
     }
     else{
       if(ret2==0 || ret3==0){
-        uni1(&id_votant,tab_mots,logfp,true);
+        uni1(tab_mots,logfp,true);
         fprintf(logfp,"------------------------------------------------------------\n");
         fprintf(logfp,"\n");
       }
       if(ret4==0|| ret3==0){
-        reset_t_tab_int_dyn(&id_votant,id_votant.dim);
-        uni2(&id_votant,tab_mots,logfp,true,mat_duel);
+        uni2(tab_mots,logfp,true,mat_duel);
         fprintf(logfp,"------------------------------------------------------------\n");
         fprintf(logfp,"\n");
       }
@@ -129,13 +138,19 @@ int main(int argc,char **argv){
    for(int i=0;i<tab_mots.nbCol;i++){
      fprintf(logfp,"candidat %d : %s\n",i,code_candidat_d(i,tab_mots));
  }
+ fprintf(logfp,"\n");
  fprintf(logfp,"------------------------------------------------------------\n");
  fprintf(logfp,"\n");
-
+ fprintf(logfp,"le graphe:\n\n");
+ generer_list_elem_d(&p,tab_mots);
+ for(int i=0;i<p.taille;i++){
+   fprintf(logfp, "%s -> %s : %d\n",code_candidat_d(p.liste[i].orig,tab_mots),code_candidat_d(p.liste[i].dest,tab_mots),p.liste[i].poids);
+ }
 }
 
  free(tab_mots.tab);
  free(mat_duel.tab);
  free(id_votant.tab);
+ free(p.liste);
  fclose(logfp);
 }
